@@ -2,6 +2,17 @@ import streamlit as st
 import pickle
 import requests
 from streamlit_option_menu import option_menu
+import gdown
+import os
+
+if not os.path.exists("similarity.pkl"):
+    url = "https://drive.google.com/uc?id=1yoIOYqY9qjFeufnEyhxCmcNXkAsTfkWX"
+    gdown.download(url, "similarity.pkl", quiet=False)
+
+if not os.path.exists("similarity.pkl"):
+    st.info("Downloading similarity data... Please wait ⏳")
+
+
 
 
 st.set_page_config(page_title="Movie Recommender", page_icon="🎬", layout="centered")
